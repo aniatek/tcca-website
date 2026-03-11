@@ -1,6 +1,0 @@
-<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'>
-  <rect width='100%' height='100%' fill='#0b66d0'/>
-  <circle cx='90' cy='60' r='32' fill='#1e8f3e'/>
-  <rect x='30' y='110' width='120' height='30' fill='#ff7a00' rx='6'/>
-  <text x='90' y='118' font-family='Arial' font-size='14' fill='#fff' text-anchor='middle'>Tavolo</text>
-</svg>

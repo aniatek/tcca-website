@@ -218,9 +218,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-weight: 700;
   padding: 12px 22px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 .btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 .btn.primary {
   color: #fff;
   background: linear-gradient(120deg, #1f6b4a, #1f5f7a);
@@ -231,6 +232,8 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid rgba(31, 107, 74, 0.35);
   background: #f9fcf8;
 }
+.btn.primary:hover { box-shadow: var(--shadow-md); }
+.btn.secondary:hover { border-color: rgba(31, 107, 74, 0.6); box-shadow: var(--shadow-sm); }
 main {
   padding-bottom: var(--space-7);
   overflow-x: clip;
@@ -306,17 +309,17 @@ main {
   background-size: cover;
   background-position: center;
 }
-.hero-our-story { background-image: linear-gradient(120deg, rgba(15, 52, 47, 0.84), rgba(20, 86, 66, 0.58)), url('../images/forest-hero.jpg'); }
-.hero-lote-culture { background-image: linear-gradient(120deg, rgba(34, 65, 46, 0.84), rgba(31, 95, 122, 0.58)), url('../images/culture.jpg'); }
-.hero-rainforest { background-image: linear-gradient(120deg, rgba(19, 74, 39, 0.84), rgba(18, 70, 94, 0.58)), url('../images/wildlife.jpg'); }
-.hero-trekking { background-image: linear-gradient(120deg, rgba(15, 66, 89, 0.84), rgba(28, 102, 62, 0.58)), url('../images/trek-hero.jpg'); }
-.hero-reef { background-image: linear-gradient(120deg, rgba(14, 72, 104, 0.84), rgba(51, 97, 118, 0.58)), url('../images/reef-hero.jpg'); }
-.hero-village { background-image: linear-gradient(120deg, rgba(29, 85, 55, 0.84), rgba(73, 72, 120, 0.58)), url('../images/village-hero.jpg'); }
-.hero-plan { background-image: linear-gradient(120deg, rgba(15, 64, 95, 0.84), rgba(37, 107, 78, 0.58)), url('../images/plan.jpg'); }
-.hero-how { background-image: linear-gradient(120deg, rgba(20, 58, 95, 0.84), rgba(31, 107, 74, 0.58)), url('../images/boat.jpg'); }
-.hero-accommodation { background-image: linear-gradient(120deg, rgba(20, 58, 95, 0.84), rgba(32, 92, 61, 0.58)), url('../images/guesthouse.jpg'); }
-.hero-tips { background-image: linear-gradient(120deg, rgba(16, 66, 88, 0.84), rgba(25, 94, 57, 0.58)), url('../images/tips.jpg'); }
-.hero-contact { background-image: linear-gradient(120deg, rgba(15, 73, 101, 0.84), rgba(24, 102, 64, 0.58)), url('../images/contact.jpg'); }
+.hero-our-story { background-image: linear-gradient(120deg, rgba(15, 52, 47, 0.84), rgba(20, 86, 66, 0.58)), url('../assets/images/our-story-conservation-home.jpeg'); }
+.hero-lote-culture { background-image: linear-gradient(120deg, rgba(34, 65, 46, 0.84), rgba(31, 95, 122, 0.58)), url('../assets/images/our_culture_homepg.jpg'); }
+.hero-rainforest { background-image: linear-gradient(120deg, rgba(19, 74, 39, 0.84), rgba(18, 70, 94, 0.58)), url('../assets/images/rainforest_wildlife_homepg.jpg'); }
+.hero-trekking { background-image: linear-gradient(120deg, rgba(15, 66, 89, 0.84), rgba(28, 102, 62, 0.58)), url('../assets/images/trekking-birdwatching-home.jpeg'); }
+.hero-reef { background-image: linear-gradient(120deg, rgba(14, 72, 104, 0.84), rgba(51, 97, 118, 0.58)), url('../assets/images/reef-marine-life-home.jpeg'); }
+.hero-village { background-image: linear-gradient(120deg, rgba(29, 85, 55, 0.84), rgba(73, 72, 120, 0.58)), url('../assets/images/village_immersion_homepg.jpg'); }
+.hero-plan { background-image: linear-gradient(120deg, rgba(15, 64, 95, 0.84), rgba(37, 107, 78, 0.58)), url('../assets/images/our_culture_homepg.jpg'); }
+.hero-how { background-image: linear-gradient(120deg, rgba(20, 58, 95, 0.84), rgba(31, 107, 74, 0.58)), url('../assets/images/our_culture.jpg'); }
+.hero-accommodation { background-image: linear-gradient(120deg, rgba(20, 58, 95, 0.84), rgba(32, 92, 61, 0.58)), url('../assets/images/tavolo_guest_house.jpg'); }
+.hero-tips { background-image: linear-gradient(120deg, rgba(16, 66, 88, 0.84), rgba(25, 94, 57, 0.58)), url('../assets/images/hero_bg01.jpg'); }
+.hero-contact { background-image: linear-gradient(120deg, rgba(15, 73, 101, 0.84), rgba(24, 102, 64, 0.58)), url('../assets/images/hero_bg01.jpg'); }
 .hero-resources,
 .hero-terms,
 .hero-privacy { background-image: linear-gradient(120deg, rgba(18, 60, 74, 0.84), rgba(33, 85, 63, 0.58)), url('../assets/images/our_story04.jpeg'); background-size: cover; background-position: center; }
@@ -365,8 +368,36 @@ main {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
-.card { text-decoration: none; color: inherit; display: block; }
-.card:hover { box-shadow: var(--shadow-md); }
+.card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card h3,
+.card p,
+.card-link-text {
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.card:hover,
+.card:focus-within,
+.card:active {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(31, 107, 74, 0.32);
+}
+.card:active { transform: translateY(-2px); }
+.features .card:hover h3,
+.features .card:focus-within h3,
+.features .card:active h3 {
+  color: var(--brand-forest);
+}
+.features .card:hover .card-link-text,
+.features .card:focus-within .card-link-text,
+.features .card:active .card-link-text {
+  color: var(--brand-forest);
+  transform: translateX(4px);
+}
 .card-image {
   width: 100%;
   min-height: 220px;

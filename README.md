@@ -3,7 +3,7 @@
 This repo contains a lightweight, responsive static site scaffold for "Tavolo Nature & Tourism".
 
 Quick start
-1. Add your real logo and photos to the `images/` folder (placeholder SVGs are included).
+1. Add your real logo and photos to the `assets/images/` folder (placeholder SVGs are included).
 2. Serve locally:
 
 ```bash
@@ -17,7 +17,7 @@ What is included
 - Several content pages: `our-story.html`, `trekking.html`, `reef.html`, `village.html`, `how-to-get-here.html`, `accommodation.html`, `travel-tips.html`, `plan-visit.html`, `contact.html`, plus `terms.html`, `privacy.html`, `resources.html`.
 - `css/styles.css` — single stylesheet for layout and theme colors.
 - `js/script.js` — small JS for mobile nav and dropdown behaviour.
-- `images/` — placeholder images (SVG content saved with `.jpg`/.png extensions to show quickly).
+- `assets/images/` — placeholder images (SVG content saved with `.jpg`/.png extensions to show quickly).
  
 Deployment
 - GitHub Pages: create a repo, push this folder to `main` (or `gh-pages`) and enable Pages from the repository settings (use `/(root)` as site source for a simple static site).
@@ -36,9 +36,9 @@ Accessibility & testing
 - See `ACCESSIBILITY_CHECKLIST.md` for a quick manual checklist.
 
 Handoff checklist
-- Replace placeholder images in `images/` with optimized web formats (WebP/AVIF recommended).
+- Replace placeholder images in `assets/images/` with optimized web formats (WebP/AVIF recommended).
 - Update legal pages in `terms.html` and `privacy.html`.
-- Replace the logo at `images/logo.png` with your production logo and check dimensions.
+- Replace the logo at `assets/tavolo-nature-tourism-logo.png` with your production logo and check dimensions.
 - Verify WhatsApp link and contact email in `contact.html`.
 - Run a deploy on Netlify/GitHub Pages and test on device sizes.
 
@@ -51,7 +51,7 @@ Accessibility & deployment notes
 - For production, host on static hosting (Netlify, GitHub Pages, Vercel) and connect a custom domain.
 
 Customization checklist
-- Replace placeholder images in `images/` with real photos; keep filenames or update HTML accordingly.
+- Replace placeholder images in `assets/images/` with real photos; keep filenames or update HTML accordingly.
 - Replace placeholder legal text in `terms.html` and `privacy.html` with finalized content.
 - Configure WhatsApp link in the footer/`index.html` with your number: `https://wa.me/<number>`.
 
@@ -70,4 +70,11 @@ powershell -ExecutionPolicy Bypass -File .\scripts\sync-layout.ps1
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\sync-layout.ps1 -DryRun
+```
+
+Asset validation
+Run a quick check before deploy to catch broken image/CSS links:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\check-assets.ps1
 ```
