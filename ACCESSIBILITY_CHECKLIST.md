@@ -1,0 +1,7 @@
+- Use Lighthouse (Chrome) or axe to run automated checks.
+- Ensure all images have `alt` attributes (logo has alt in HTML).
+- Ensure color contrast passes WCAG AA for text and buttons.
+- Ensure focus states are visible for keyboard navigation.
+- Ensure nav is operable on mobile (JS toggles provided).
+- Run keyboard-only navigation to test dropdowns and focus trap.
+- Add skip-to-content link if desired for longer pages.
