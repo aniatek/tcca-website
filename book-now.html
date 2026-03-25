@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tavolo Nature and Tourism</title>
+  <title>Book Now | Tavolo Nature and Tourism</title>
   <link rel="icon" type="image/png" href="assets/tavolo-nature-tourism-logo.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="subpage" data-page="plan-visit">
+<body class="subpage" data-page="book-now">
   <!-- Top Bar -->
   <div class="top-bar">
     <div class="container top-bar-inner">
@@ -65,63 +65,74 @@
   </header>
 
 
-<main>
-    <section class="hero page-hero hero-plan">
-      <img class="page-hero-image" src="assets/images/our_culture_homepg.jpg" alt="Travel planning overview for visiting Tavolo" loading="eager">
+  <main>
+    <section class="hero page-hero hero-book">
+      <img class="page-hero-image" src="assets/images/hero_bg01.jpg" alt="Tavolo coastline at sunrise" loading="eager">
       <div class="hero-inner container">
-        <h1 class="hero-title">Plan Your Visit</h1>
-        <p class="hero-sub">Choose activities, match transport and book with your group.</p>
-        <a class="btn primary" href="contact.html">Start planning</a>
+        <h1 class="hero-title">Book Now</h1>
+        <p class="hero-sub">Tell us your dates, group size, and interests. We will confirm availability and craft a tailored visit plan.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#booking-form">Start Booking</a>
+          <a class="btn secondary" href="plan-visit.html">Plan Your Visit</a>
+        </div>
       </div>
     </section>
 
     <section class="container features">
       <div class="section-intro">
-        <h2 class="section-title">Build Your Tavolo Itinerary</h2>
-        <p class="section-subtitle">We help coordinate flights, transfers, accommodations, and activity schedules based on your time, interests, and group profile.</p>
+        <h2 class="section-title">How Booking Works</h2>
+        <p class="section-subtitle">A simple, guided process to make sure your trip is safe, smooth, and aligned with community hosting schedules.</p>
       </div>
       <div class="content-grid">
         <article class="info-card cta-band">
-          <h3>1. Choose Your Experiences</h3>
-          <ul>
-            <li>Rainforest trekking and birdwatching</li>
-            <li>Reef snorkeling and marine activities</li>
-            <li>Village immersion and cultural learning</li>
-          </ul>
+          <h3>Share Your Dates</h3>
+          <p>Let us know your preferred travel window, flexibility, and arrival point so we can align local transport and hosting.</p>
         </article>
         <article class="info-card cta-band">
-          <h3>2. Match Travel Logistics</h3>
-          <ul>
-            <li>International and domestic flight guidance</li>
-            <li>Boat transfer coordination</li>
-            <li>Weather-aware arrival scheduling</li>
-          </ul>
+          <h3>Select Your Experiences</h3>
+          <p>Choose rainforest trekking, reef activities, or village immersion. We will map a balanced itinerary.</p>
         </article>
         <article class="info-card cta-band">
-          <h3>3. Confirm Stay Details</h3>
-          <ul>
-            <li>Guest house or immersion stay options</li>
-            <li>Dietary and health considerations</li>
-            <li>Packing and activity readiness checks</li>
-          </ul>
+          <h3>Confirm Logistics</h3>
+          <p>We coordinate transfers, accommodation, and local guide schedules based on your group size.</p>
         </article>
         <article class="info-card cta-band">
-          <h3>4. Finalize Booking</h3>
-          <ul>
-            <li>Custom schedule and pricing confirmation</li>
-            <li>Pre-arrival briefing and safety notes</li>
-            <li>On-arrival host and guide coordination</li>
-          </ul>
+          <h3>Finalize Booking</h3>
+          <p>Receive your custom plan, pricing confirmation, and pre-arrival checklist.</p>
         </article>
       </div>
-      <div class="cta-row">
-        <a class="btn primary" href="contact.html">Request a Custom Plan</a>
-        <a class="btn secondary" href="how-to-get-here.html">Review Travel Route</a>
+    </section>
+
+    <section id="booking-form" class="container features contact-inquiry">
+      <div class="section-intro">
+        <h2 class="section-title">Booking Request</h2>
+        <p class="section-subtitle">Complete the form below and our team will reply within 48 hours with availability and next steps.</p>
       </div>
+      <form class="form-panel" action="#" method="post">
+        <label class="form-label" for="booking-name">Full Name</label>
+        <input class="form-input" type="text" id="booking-name" name="name" placeholder="Your name" required>
+
+        <label class="form-label" for="booking-email">Email Address</label>
+        <input class="form-input" type="email" id="booking-email" name="email" placeholder="you@example.com" required>
+
+        <label class="form-label" for="booking-dates">Preferred Travel Dates</label>
+        <input class="form-input" type="text" id="booking-dates" name="dates" placeholder="e.g., 12-18 July 2026">
+
+        <label class="form-label" for="booking-group">Group Size</label>
+        <input class="form-input" type="number" id="booking-group" name="group" min="1" max="30" placeholder="Number of guests">
+
+        <label class="form-label" for="booking-notes">Trip Interests / Notes</label>
+        <textarea class="form-textarea" id="booking-notes" name="notes" rows="5" placeholder="Tell us about your interests and any special requests."></textarea>
+
+        <div class="cta-row">
+          <button class="btn primary" type="submit">Submit Booking Request</button>
+          <a class="btn secondary" href="contact.html">Contact Us</a>
+        </div>
+      </form>
     </section>
   </main>
 
-            <footer class="site-footer">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <a class="footer-brand-link" href="index.html">
@@ -132,7 +143,7 @@
           </div>
         </a>
         <p class="footer-tagline">We care for the environment.</p>
-                        <p class="footer-social-heading">Follow Us</p>
+        <p class="footer-social-heading">Follow Us</p>
         <div class="footer-social social-links">
           <a href="https://facebook.com" aria-label="Facebook" target="_blank"></a>
           <a href="https://instagram.com" aria-label="Instagram" target="_blank"></a>
@@ -183,12 +194,7 @@
     <div class="footer-bottom">&copy; Tavolo Nature & Tourism</div>
   </footer>
 
-
-
-
-
-
-    <a class="whatsapp-float" href="https://wa.me/67570093434" target="_blank" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/67570093434" target="_blank" title="Chat via WhatsApp" aria-label="Chat via WhatsApp">
     <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-4 3v-3H6.5A2.5 2.5 0 0 1 4 13.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
       <circle cx="9" cy="10" r="1.2" fill="currentColor" />
@@ -196,41 +202,10 @@
       <circle cx="15" cy="10" r="1.2" fill="currentColor" />
     </svg>
   </a>
+
   <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
