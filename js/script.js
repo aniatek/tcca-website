@@ -250,4 +250,115 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   }
+
+  const travelMap = document.querySelector('#travel-route-map');
+  const routeChips = Array.from(document.querySelectorAll('[data-route-country]'));
+  const routeStatus = document.querySelector('#travel-route-status');
+
+  if (travelMap && routeChips.length) {
+    const frameWrap = travelMap.closest('.map-frame-wrap');
+    const routeStops = {
+      australia: {
+        label: 'Australia',
+        origin: 'Australia',
+        countryView: { q: '-25.2744,133.7751', z: 4 }
+      },
+      hong_kong: {
+        label: 'Hong Kong',
+        origin: 'Hong Kong',
+        countryView: { q: '22.3193,114.1694', z: 7 }
+      },
+      singapore: {
+        label: 'Singapore',
+        origin: 'Singapore',
+        countryView: { q: '1.3521,103.8198', z: 8 }
+      },
+      new_zealand: {
+        label: 'New Zealand',
+        origin: 'New Zealand',
+        countryView: { q: '-40.9006,174.8860', z: 5 }
+      },
+      china: {
+        label: 'China',
+        origin: 'China',
+        countryView: { q: '35.8617,104.1954', z: 4 }
+      }
+    };
+
+    let routeTimer;
+
+    const setMapSrc = (src) => {
+      if (frameWrap) {
+        frameWrap.classList.add('is-transitioning');
+      }
+      window.setTimeout(() => {
+        travelMap.src = src;
+        if (frameWrap) {
+          window.setTimeout(() => frameWrap.classList.remove('is-transitioning'), 220);
+        }
+      }, 120);
+    };
+
+    const getLocationMapSrc = (step) =>
+      `https://maps.google.com/maps?q=${encodeURIComponent(step.q)}&z=${step.z}&output=embed`;
+
+    const getRouteMapSrc = (originLabel) =>
+      `https://maps.google.com/maps?output=embed&saddr=${encodeURIComponent(originLabel)}&daddr=${encodeURIComponent('Papua New Guinea')}+to:${encodeURIComponent('Port Moresby Papua New Guinea')}+to:${encodeURIComponent('East New Britain Papua New Guinea')}+to:${encodeURIComponent('Tavolo Papua New Guinea')}`;
+
+    const playRoute = (countryKey) => {
+      const route = routeStops[countryKey];
+      if (!route) {
+        return;
+      }
+
+      routeChips.forEach((chip) => {
+        chip.classList.toggle('is-active', chip.dataset.routeCountry === countryKey);
+      });
+
+      if (routeStatus) {
+        routeStatus.textContent = `${route.label} -> Papua New Guinea -> Port Moresby -> East New Britain -> Tavolo`;
+      }
+
+      if (routeTimer) {
+        window.clearTimeout(routeTimer);
+      }
+
+      setMapSrc(getLocationMapSrc(route.countryView));
+      routeTimer = window.setTimeout(() => {
+        setMapSrc(getRouteMapSrc(route.origin));
+      }, 1600);
+    };
+
+    routeChips.forEach((chip) => {
+      chip.addEventListener('click', (event) => {
+        event.preventDefault();
+        playRoute(chip.dataset.routeCountry);
+      });
+    });
+
+    playRoute('australia');
+  }
+
+  const homePopup = document.querySelector('#home-popup');
+  if (homePopup && document.body.classList.contains('home')) {
+    const closePopup = () => {
+      homePopup.setAttribute('hidden', '');
+    };
+
+    const openPopup = () => {
+      homePopup.removeAttribute('hidden');
+    };
+
+    homePopup.querySelectorAll('[data-popup-close]').forEach((node) => {
+      node.addEventListener('click', closePopup);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !homePopup.hasAttribute('hidden')) {
+        closePopup();
+      }
+    });
+
+    window.setTimeout(openPopup, 500);
+  }
 });

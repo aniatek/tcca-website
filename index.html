@@ -70,6 +70,19 @@
     </div>
   </header>
 
+  <div class="home-popup" id="home-popup" hidden>
+    <div class="home-popup-dialog" role="dialog" aria-label="Tavolo is Waiting message">
+      <button type="button" class="home-popup-close" aria-label="Close popup" data-popup-close>&times;</button>
+      <div class="home-popup-media">
+        <img src="assets/images/homepg-hero-bg03.png" alt="Village welcome in Tavolo" loading="eager">
+      </div>
+      <div class="home-popup-body">
+        <h2 id="home-popup-title" class="home-popup-title">Tavolo is Waiting</h2>
+        <a class="btn primary" href="plan-visit.html">Plan Your Trip</a>
+      </div>
+    </div>
+  </div>
+
 
 
 
@@ -150,6 +163,81 @@
           <p>Supporting community conservation efforts and responsible travel practices.</p>
           <span class="card-link-text btn secondary">Travel Responsibly</span>
         </a>
+      </div>
+    </section>
+
+    <section class="features container">
+      <h2 class="section-title">Plan Your Trip</h2>
+      <p class="section-subtitle">Everything you need to prepare your journey, choose experiences, and find the right place to stay.</p>
+      <div class="cards">
+        <a class="card" href="how-to-get-here.html">
+          <div class="card-image">
+            <img src="assets/images/how_to_get_there.jpeg" alt="Travel routes and guidance for getting to Tavolo" loading="lazy">
+          </div>
+          <h3>How to Get Here</h3>
+          <p>Plan your route to Tavolo with practical guidance for reaching this remote destination.</p>
+          <span class="card-link-text btn secondary">View Travel Routes</span>
+        </a>
+        <a class="card" href="trekking.html">
+          <div class="card-image">
+            <img src="assets/images/trekking-birdwatching-home.jpeg" alt="Outdoor activities and guided experiences in Tavolo" loading="lazy">
+          </div>
+          <h3>What to Do</h3>
+          <p>Explore trekking, reef adventures, village immersion, and other memorable experiences.</p>
+          <span class="card-link-text btn secondary">See Activities</span>
+        </a>
+        <a class="card" href="accommodation.html">
+          <div class="card-image">
+            <img src="assets/images/tcca_guest_house.jpg" alt="Accommodation options for staying in Tavolo" loading="lazy">
+          </div>
+          <h3>Where to Stay</h3>
+          <p>Find welcoming accommodation options that support a comfortable and community-led visit.</p>
+          <span class="card-link-text btn secondary">Find Your Stay</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="container content-section contact-map">
+      <div class="section-intro">
+        <h2 class="section-title">Getting to Tavolo</h2>
+        <p class="section-subtitle">Find Tavolo within Papua New Guinea and follow the usual travel route from your home country to Port Moresby, East New Britain, and onward to Tavolo.</p>
+        <div class="travel-route-bar" aria-label="Travel routes to Tavolo">
+          <div class="travel-route-countries" role="group" aria-label="Choose a departure country">
+            <a class="travel-route-chip is-active" href="#travel-route-map" data-route-country="australia">Australia</a>
+            <a class="travel-route-chip" href="#travel-route-map" data-route-country="hong_kong">Hong Kong</a>
+            <a class="travel-route-chip" href="#travel-route-map" data-route-country="singapore">Singapore</a>
+            <a class="travel-route-chip" href="#travel-route-map" data-route-country="new_zealand">New Zealand</a>
+            <a class="travel-route-chip" href="#travel-route-map" data-route-country="china">China</a>
+          </div>
+          <a class="travel-route-link" href="plan-visit.html">Plan your Trip</a>
+        </div>
+      </div>
+      <div class="map-grid">
+        <article class="map-panel">
+          <h3>Tavolo in Papua New Guinea</h3>
+          <div class="map-frame-wrap">
+            <iframe
+              id="travel-route-map"
+              class="map-frame"
+              title="Map showing Tavolo within Papua New Guinea"
+              src="https://maps.google.com/maps?q=-25.2744%2C133.7751&z=4&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </article>
+        <article class="map-panel">
+          <h3>Typical Travel Route</h3>
+          <p class="travel-route-status" id="travel-route-status">Australia -> Papua New Guinea -> Port Moresby -> East New Britain -> Tavolo</p>
+          <ul class="checklist">
+            <li>Start from your international departure country and fly into Port Moresby, Papua New Guinea.</li>
+            <li>Connect from Port Moresby to East New Britain for the next stage of your journey.</li>
+            <li>Continue from East New Britain to Tavolo by the local transport arrangements for your visit.</li>
+          </ul>
+          <div class="highlight-box">
+            <p><strong>Route at a glance:</strong> International departure -> Port Moresby -> East New Britain -> Tavolo.</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -307,13 +395,6 @@
   <script src="js/script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 

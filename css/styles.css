@@ -857,6 +857,9 @@ main > * {
   position: relative;
   transition: transform 0.35s var(--ease-smooth), box-shadow 0.35s var(--ease-smooth), border-color 0.35s var(--ease-smooth);
 }
+.features .card {
+  min-height: clamp(300px, 62vw, 440px);
+}
 .card::before {
   content: "";
   position: absolute;
@@ -939,12 +942,21 @@ main > * {
   color: #f8fbf6;
   text-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   font-size: clamp(1.1rem, 1.2vw + 0.8rem, 1.5rem);
+  font-weight: 800;
 }
 .card p {
   margin: 0 var(--space-3) var(--space-4);
   color: rgba(244, 249, 244, 0.9);
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   font-size: clamp(0.95rem, 0.6vw + 0.8rem, 1.08rem);
+}
+.features .card h3 {
+  margin-bottom: var(--space-4);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+.features .card p {
+  display: none;
 }
 .card-link-text {
   display: inline-flex;
@@ -1083,6 +1095,150 @@ main > * {
   margin-left: auto;
   margin-right: auto;
 }
+.travel-route-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: var(--space-3);
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(31, 107, 74, 0.18);
+}
+.travel-route-countries {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 14px;
+}
+.travel-route-chip,
+.travel-route-link {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--brand-forest);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  box-shadow: none;
+}
+.travel-route-chip {
+  cursor: pointer;
+}
+.travel-route-chip:not(:last-child)::after {
+  content: "|";
+  margin-left: 14px;
+  color: rgba(31, 107, 74, 0.35);
+}
+.travel-route-chip:hover,
+.travel-route-chip:focus-visible,
+.travel-route-link:hover,
+.travel-route-link:focus-visible,
+.travel-route-chip.is-active {
+  color: var(--brand-earth);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  outline: none;
+}
+.travel-route-status {
+  margin: 0 0 var(--space-3);
+  text-align: center;
+  color: var(--brand-forest);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.map-frame-wrap.is-transitioning {
+  opacity: 0.7;
+  transform: translateY(4px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.home-popup {
+  position: fixed;
+  left: clamp(14px, 2vw, 24px);
+  bottom: clamp(14px, 2vw, 24px);
+  z-index: 2000;
+  width: min(100vw - 28px, 330px);
+}
+.home-popup[hidden] {
+  display: none;
+}
+.home-popup-dialog {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: stretch;
+  background: rgba(248, 251, 246, 0.98);
+  border: 1px solid rgba(31, 107, 74, 0.16);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 36px rgba(9, 25, 20, 0.2);
+  backdrop-filter: blur(10px);
+}
+.home-popup-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.home-popup-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 10px 12px 8px;
+  text-align: center;
+}
+.home-popup-title {
+  margin: 0;
+  color: var(--brand-forest);
+  font-size: clamp(0.98rem, 0.5vw + 0.9rem, 1.18rem);
+  line-height: 1.15;
+}
+.home-popup-text {
+  margin: 0;
+  color: var(--ink-700);
+  font-size: 0.84rem;
+  line-height: 1.38;
+}
+.home-popup-body .btn {
+  align-self: center;
+  padding: 8px 14px;
+  min-height: 36px;
+  font-size: 0.84rem;
+}
+.home-popup-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(248, 251, 246, 0.95);
+  color: var(--brand-forest);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(9, 25, 20, 0.12);
+}
+.home-popup-close:hover,
+.home-popup-close:focus-visible {
+  background: #fff;
+  color: var(--brand-earth);
+  outline: none;
+}
+
 .contact-map {
   padding-top: clamp(44px, 6vw, 72px);
   padding-bottom: clamp(44px, 6vw, 72px);
@@ -1094,6 +1250,16 @@ main > * {
   padding: clamp(16px, 2.2vw, 28px);
   border-color: rgba(31, 107, 74, 0.24);
   box-shadow: 0 14px 32px rgba(16, 37, 31, 0.12);
+}
+.home .contact-map .map-grid {
+  max-width: min(100%, 1240px);
+}
+.home .contact-map .map-panel {
+  width: 100%;
+  max-width: none;
+}
+.home .contact-map .map-frame {
+  min-height: clamp(320px, 52vw, 560px);
 }
 .contact-map .map-panel h3 {
   text-align: center;
@@ -1435,22 +1601,7 @@ main > * {
 }
 
 .whatsapp-float {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-weight: 700;
-  color: #fff;
-  background: linear-gradient(130deg, var(--brand-forest), var(--brand-leaf));
-  box-shadow: var(--shadow-md);
-  z-index: 900;
-  transition: all 0.2s ease;
+  display: none !important;
 }
 
 .whatsapp-float:hover {
@@ -1816,6 +1967,25 @@ main > * {
   }
   .footer-menus {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .home-popup-dialog {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+
+  .home-popup-media img {
+    min-height: 100%;
+  }
+
+  .travel-route-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .travel-route-countries {
+    width: 100%;
   }
 }
 
