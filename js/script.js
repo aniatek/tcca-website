@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', function (e) {
       const href = (this.getAttribute('href') || '').trim();
       const isTriggerOnly = href === '#' || href === '';
+      const isOpen = parent.classList.contains('open');
 
-      if (isTriggerOnly || !isDesktop()) {
+      if (isTriggerOnly || (!isDesktop() && !isOpen)) {
         e.preventDefault();
       }
       e.stopPropagation();
 
-      const isOpen = parent.classList.contains('open');
       closeAllDropdowns();
 
       if (!isOpen) {
@@ -360,5 +360,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     window.setTimeout(openPopup, 500);
+  }
+
+  const instagramLoadMoreButton = document.querySelector('[data-instagram-load-more]');
+  const instagramExtraPosts = Array.from(document.querySelectorAll('.instagram-post-extra'));
+
+  if (instagramLoadMoreButton && instagramExtraPosts.length) {
+    instagramLoadMoreButton.addEventListener('click', () => {
+      instagramExtraPosts.forEach((post) => {
+        post.hidden = false;
+      });
+      instagramLoadMoreButton.hidden = true;
+    });
   }
 });

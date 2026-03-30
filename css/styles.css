@@ -1095,6 +1095,150 @@ main > * {
   margin-left: auto;
   margin-right: auto;
 }
+
+.home-journey-banner {
+  position: relative;
+  min-height: 66vh;
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  background: #183d32;
+}
+.home-journey-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(115deg, rgba(9, 30, 23, 0.8) 12%, rgba(9, 30, 23, 0.3) 52%, rgba(9, 30, 23, 0.7) 100%),
+    linear-gradient(180deg, rgba(8, 24, 18, 0.12), rgba(8, 24, 18, 0.56));
+}
+.home-journey-banner-media,
+.home-journey-banner-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.home-journey-banner-media img {
+  object-fit: cover;
+}
+.home-journey-banner-content {
+  position: relative;
+  z-index: 2;
+  min-height: 66vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  padding-top: clamp(56px, 8vw, 88px);
+  padding-bottom: clamp(56px, 8vw, 88px);
+  text-align: center;
+}
+.home-journey-banner-kicker {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(248, 251, 246, 0.82);
+}
+.home-journey-banner-title {
+  margin: 0;
+  max-width: 11ch;
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+  line-height: 0.98;
+  text-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+}
+.home-journey-banner-copy {
+  max-width: 28ch;
+  margin: 0;
+  font-size: clamp(1rem, 1vw + 0.9rem, 1.35rem);
+  color: rgba(248, 251, 246, 0.9);
+  text-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+}
+.home-journey-banner .btn {
+  margin-top: var(--space-2);
+  box-shadow: 0 12px 28px rgba(8, 24, 18, 0.26);
+}
+.instagram-showcase {
+  padding-top: clamp(52px, 8vw, 88px);
+  padding-bottom: clamp(56px, 8vw, 96px);
+  text-align: center;
+}
+.instagram-showcase-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+.instagram-showcase-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand-earth), var(--brand-sun) 45%, var(--brand-ocean));
+  box-shadow: 0 18px 32px rgba(20, 53, 44, 0.18);
+  transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+.instagram-showcase-icon:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 38px rgba(20, 53, 44, 0.24);
+}
+.instagram-showcase-icon svg {
+  width: 30px;
+  height: 30px;
+}
+.instagram-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+.instagram-post {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(26, 66, 54, 0.12);
+  box-shadow: var(--shadow-sm);
+  background: var(--surface-1);
+}
+.instagram-post img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.4s var(--ease-smooth);
+}
+.instagram-post:hover img {
+  transform: scale(1.04);
+}
+.instagram-showcase-more {
+  margin: var(--space-4) 0 var(--space-3);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: var(--ink-700);
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.instagram-showcase-more:hover,
+.instagram-showcase-more:focus-visible {
+  color: var(--brand-earth);
+  transform: translateY(-1px);
+  outline: none;
+}
+.instagram-showcase-button {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--space-2);
+}
 .travel-route-bar {
   display: flex;
   flex-wrap: wrap;
@@ -1979,6 +2123,10 @@ main > * {
     min-height: 100%;
   }
 
+  .instagram-showcase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .travel-route-bar {
     flex-direction: column;
     gap: 12px;
@@ -1986,6 +2134,13 @@ main > * {
 
   .travel-route-countries {
     width: 100%;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 540px) {
+  .instagram-showcase-grid {
+    grid-template-columns: 1fr;
   }
 }
 
